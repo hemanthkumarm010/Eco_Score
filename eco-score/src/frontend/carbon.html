@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Carbon Calculator</title>
+    <link rel="stylesheet" href="/carbonstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Carbon Calculator</h1>
+        <form id="carbonForm" method="POST" action="/calculate">
+            <div class="input-group">
+                <label for="distance">🚗 Daily commute distance (in km):</label>
+                <input type="number" id="distance" name="distance" min="0" step="0.1" required>
+            </div>
+            <div class="input-group">
+                <label for="electricity">💡 Monthly electricity consumption (in kWh):</label>
+                <input type="number" id="electricity" name="electricity" min="0" step="0.1" required>
+            </div>
+            <div class="input-group">
+                <label for="waste">🗑️ Waste generated per week (in kg):</label>
+                <input type="number" id="waste" name="waste" min="0" step="0.1" required>
+            </div>
+            <div class="input-group">
+                <label for="meals">🍽️ Number of meals per day:</label>
+                <input type="number" id="meals" name="meals" min="0" required>
+            </div>
+            <button type="submit">Calculate CO2 Emissions</button>
+        </form>
+        <div id="results" class="results"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    document.getElementById('carbonForm').onsubmit = async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const formObject = Object.fromEntries(formData);
+
+    // Send POST request to Flask to get the results
+    const response = await fetch('/calculate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formObject)
+    });
+
+    const results = await response.json();
+
+    const resultsDiv = document.getElementById('results');
+
+    if (results.error) {
+        resultsDiv.innerHTML = `<p style="color: red;">Error: ${results.error}</p>`;
+    } else {
+        resultsDiv.innerHTML = `
+            <h3>Carbon Emissions by Category</h3>
+            <p>🚗 Transportation: ${results.transportation} tonnes CO2 per year</p>
+            <p>💡 Electricity: ${results.electricity} tonnes CO2 per year</p>
+            <p>🍽️ Diet: ${results.diet} tonnes CO2 per year</p>
+            <p>🗑️ Waste: ${results.waste} tonnes CO2 per year</p>
+            <h3>Total Carbon Footprint</h3>
+            <p>🌍 Your total carbon footprint is: ${results.total} tonnes CO2 per year</p>
+        `;
+    }
+};
+
+
+</script>
+</html>

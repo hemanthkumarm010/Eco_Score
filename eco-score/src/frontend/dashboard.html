@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoScore Dashboard</title>
+    <link rel="stylesheet" href="\dashstyle.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+
+    
+
+  
+
+    <div class="container">
+        <!-- Menu Bar -->
+        <div class="menu-bar">
+            <ul>
+                <li class="menu-item1"><j class="fas fa-tachometer-alt"></j> Dashboard</li>
+                <li class="menu-item"><i class="fas fa-user"></i> My Profile</li>
+                <li class="menu-item"><i class="fas fa-map-marker-alt"></i> Journey Tracker</li>
+                <li class="menu-item"><i class="fas fa-gamepad"></i> Game</li>
+            </ul>
+        </div>
+
+        
+    
+        <div class="main-content">
+            
+            <div class="box1">
+                <div class="label">Carbon Emissions Reduced</div>
+                <div class="value">1.2 tons</div>
+            </div>
+            <div class="box2">
+                <div class="label">Trees Planted</div>
+                <div class="value">32</div>
+            </div>
+            <div class="box3">
+                <div class="label">Water Saved</div>
+                <div class="value">24L</div>
+            </div>
+            <div class="box4">
+                <div class="label">Waste Diverted</div>
+                <div class="value">12kg</div>
+            </div>
+            
+            <div class="box5">
+                <!-- Profile Picture -->
+                <div class="profile-picture">
+                    <img src="img/profile.jpeg" alt="Profile Picture">
+                </div>
+                <!-- Username -->
+                <h3 class="username">Username</h3>
+                <!-- Horizontal line -->
+                <hr>
+                <!-- Name -->
+                <div class="profile-tabs">
+                    <div class="tab" id="name-tab">
+                      <span>Name:</span>
+                      <input type="text" id="name" class="edit-field" value="John Doe" disabled>
+                    </div>
+                    <div class="tab" id="email-tab">
+                      <span>Email:</span>
+                      <input type="email" id="email" class="edit-field" value="JohnDoe@gmail.com" disabled>
+                    </div>
+                    <div class="tab" id="phone-tab">
+                      <span>Phone:</span>
+                      <input type="tel" id="phone" class="edit-field" value="9611538171" disabled>
+                    </div>
+                  </div>
+                </div>
+                <div class="profile-footer">
+                  <a href="#" class="edit-link" id="edit-profile-link"><span class="edit-icon">✏️</span>Edit Profile</a>
+                  <div class="buttons" style="display: none;">
+                    <button id="save-button">Save</button>
+                    <button id="cancel-button">Cancel</button>
+                  </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>          
+</body>
+</html>
