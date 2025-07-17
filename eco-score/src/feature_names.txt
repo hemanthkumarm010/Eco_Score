@@ -1,0 +1,17 @@
+Age
+HomeSize
+MonthlyElectricityConsumption
+MonthlyWaterConsumption
+DietType_<NA>
+ClothingFrequency_<NA>
+TransportationMode_<NA>
+EnergySource_<NA>
+HomeType_<NA>
+Location_<NA>
+SustainableBrands_<NA>
+Gender_<NA>
+CommunityInvolvement_<NA>
+UsingPlasticProducts_<NA>
+DisposalMethods_<NA>
+LocalFoodFrequency_<NA>
+PhysicalActivities_<NA>
